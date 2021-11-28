@@ -1,26 +1,29 @@
-use rprime::fw::obj::simple_obj_registry::ObjRegistry;
 use rprime::fw::obj;
+use rprime::fw::obj::obj_base::ObjBase;
 
 #[test]
 fn create_simple_registry() {
     let registry = obj::registry();
-    assert_eq!(registry.objects.len(), 0);
+    assert_eq!(registry.get_objects().len(), 0);
 }
 
 #[test]
 fn reg_obj() {
     let mut registry = obj::registry();
-    assert_eq!(registry.objects.len(), 0);
+    assert_eq!(registry.get_objects().len(), 0);
 
-    struct MockObj;
-    impl obj::obj_base::ObjBase for MockObj {
-        fn get_obj_name(&self) -> &str {""}
-        fn set_obj_name(&self, _name: Option<&str>) {}
-        fn to_string(&self) -> &str {""}
-        fn new(&self) {}
-    }
+    struct MockObj { base: ObjBase };
 
-    let mock = MockObj;
-    registry.reg_object(Box::new(mock));
-    assert_eq!(registry.objects.len(), 1);
+    let mock = MockObj {
+        base: ObjBase::new(
+                  #[cfg(feature = "object_names")]
+                  "MockObj".to_string()
+                  )
+    };
+
+    #[cfg(feature = "object_names")]
+    assert_eq!(mock.base.name, "MockObj".to_string());
+
+    registry.reg_object(mock.base);
+    assert_eq!(registry.get_objects().len(), 1);
 }
