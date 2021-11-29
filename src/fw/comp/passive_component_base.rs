@@ -24,7 +24,7 @@ impl PassiveComponentBase {
         format!("PassiveComponentBase")
     }
     
-    pub fn new(#[cfg(feature = "object_names")] name: String) -> Self{
+    pub fn new(#[cfg(feature = "object_names")] name: String) -> Self {
         PassiveComponentBase {
             object: ObjBase::new(#[cfg(feature = "object_names")] name),
             id_base: 0
