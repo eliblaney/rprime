@@ -1,4 +1,6 @@
-pub type FwOpcodeType = u32;
+pub mod cmd_packet;
+
+use crate::config::fw_config::FwOpcodeType;
 
 pub enum CommandResponse {
     CommandOk, // Command successfully executed
