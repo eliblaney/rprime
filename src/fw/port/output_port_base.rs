@@ -5,7 +5,7 @@ use crate::fw::port::port_base::Port;
 use crate::fw::port::input_port_base::InputPortBase;
 use crate::fw::comp::passive_component_base::PassiveComponentBase;
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct OutputPortBase {
     pub base: PortBase,
     pub port_number: u16,

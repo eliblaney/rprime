@@ -9,7 +9,7 @@ lazy_static! {
     static ref TRACE: Mutex<bool> = Mutex::new(false);
 }
 
-#[derive(Serialize, Deserialize, Debug)]
+#[derive(Serialize, Deserialize, Clone, Debug)]
 pub struct PortBase {
     pub object: ObjBase,
     #[cfg(feature = "port_tracing")] 
