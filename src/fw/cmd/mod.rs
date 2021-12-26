@@ -2,7 +2,7 @@ pub mod cmd_packet;
 
 use crate::config::fw_config::FwOpcodeType;
 
-type CmdArgBuffer = Vec<u8>;
+pub type CmdArgBuffer = Vec<u8>;
 
 /* IMPORTANT NOTE:
  * The items below were XML files in F' that were since removed.
