@@ -45,7 +45,7 @@ pub trait Queue: Sync + Send {
 
 }
 
-fn get_num_queues() -> u32 {
+pub fn get_num_queues() -> u32 {
     *NUM_QUEUES.lock().unwrap()
 }
 
