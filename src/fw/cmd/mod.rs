@@ -8,7 +8,7 @@ pub type CmdArgBuffer = Vec<u8>;
  * The items below were XML files in F' that were since removed.
  * They are left in here for now, but will likely be removed at a later date.
  */
-
+ 
 pub enum CommandResponse {
     CommandOk, // Command successfully executed
     CommandInvalidOpcode, // Invalid opcode dispatched
