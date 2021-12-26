@@ -2,6 +2,13 @@ pub mod cmd_packet;
 
 use crate::config::fw_config::FwOpcodeType;
 
+type CmdArgBuffer = Vec<u8>;
+
+/* IMPORTANT NOTE:
+ * The items below were XML files in F' that were since removed.
+ * They are left in here for now, but will likely be removed at a later date.
+ */
+
 pub enum CommandResponse {
     CommandOk, // Command successfully executed
     CommandInvalidOpcode, // Invalid opcode dispatched
@@ -34,5 +41,5 @@ pub struct CmdPort {
     // Command Sequence
     pub cmd_seq: u32,
     // Buffer containing arguments
-    pub args: [u8]
+    pub args: CmdArgBuffer
 }
